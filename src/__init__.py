@@ -1,1 +1,2 @@
-from .utils import adjust_column_names
+from .utils import (
+    adjust_column_names)

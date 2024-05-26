@@ -1,0 +1,151 @@
+attention_head_size: 1
+categorical_groups: {}
+causal_attention: true
+dropout: 0.1
+embedding_labels:
+  city:
+    Daugavpils: 0
+    Jelgava: 1
+    Liepaja: 2
+    Riga: 3
+    Tukums: 4
+    Ventspils: 5
+  day:
+    '1': 0
+    '10': 1
+    '11': 2
+    '12': 3
+    '13': 4
+    '14': 5
+    '15': 6
+    '16': 7
+    '17': 8
+    '18': 9
+    '19': 10
+    '2': 11
+    '20': 12
+    '21': 13
+    '22': 14
+    '23': 15
+    '24': 16
+    '25': 17
+    '26': 18
+    '27': 19
+    '28': 20
+    '29': 21
+    '3': 22
+    '30': 23
+    '31': 24
+    '4': 25
+    '5': 26
+    '6': 27
+    '7': 28
+    '8': 29
+    '9': 30
+  month:
+    '1': 0
+    '10': 1
+    '11': 2
+    '12': 3
+    '2': 4
+    '3': 5
+    '4': 6
+    '5': 7
+    '6': 8
+    '7': 9
+    '8': 10
+    '9': 11
+  year:
+    '2022': 0
+    '2023': 1
+embedding_paddings: []
+embedding_sizes:
+  city: !!python/tuple
+  - 6
+  - 4
+  day: !!python/tuple
+  - 31
+  - 11
+  month: !!python/tuple
+  - 12
+  - 6
+  year: !!python/tuple
+  - 2
+  - 1
+hidden_continuous_size: 8
+hidden_continuous_sizes: {}
+hidden_size: 8
+learning_rate: 0.041686938347033554
+log_gradient_flow: false
+log_interval: 10
+log_val_interval: null
+lstm_layers: 1
+max_encoder_length: 24
+monotone_constaints: {}
+optimizer: Ranger
+optimizer_params: null
+output_size: 7
+output_transformer: !!python/object:pytorch_forecasting.data.encoders.TorchNormalizer
+  center: true
+  center_: !!python/object/apply:numpy.core.multiarray.scalar
+  - &id001 !!python/object/apply:numpy.dtype
+    args:
+    - f8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    o9VJCvlinkA=
+  method: standard
+  method_kwargs: {}
+  scale_: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    l85aboQbp0A=
+  transformation: null
+reduce_on_plateau_min_lr: 1.0e-05
+reduce_on_plateau_patience: 4
+reduce_on_plateau_reduction: 2.0
+share_single_variable_networks: false
+static_categoricals:
+- city
+static_reals:
+- encoder_length
+- sum_of_claims_center
+- sum_of_claims_scale
+time_varying_categoricals_decoder:
+- year
+- month
+- day
+time_varying_categoricals_encoder:
+- year
+- month
+- day
+time_varying_reals_decoder:
+- time_idx
+- relative_time_idx
+time_varying_reals_encoder:
+- time_idx
+- relative_time_idx
+- sum_of_claims
+weight_decay: 0.0
+x_categoricals:
+- city
+- year
+- month
+- day
+x_reals:
+- encoder_length
+- sum_of_claims_center
+- sum_of_claims_scale
+- time_idx
+- relative_time_idx
+- sum_of_claims
