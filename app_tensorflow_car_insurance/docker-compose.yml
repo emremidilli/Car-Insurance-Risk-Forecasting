@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  app_tensorflow_car_insurance:
+    build:
+      context: .
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+    volumes:
+      - ../data:/tf/data
+      - ../notebooks:/tf/notebooks
+      - ../src:/tf/src
+    ports:
+      - "8888:8888"
+    stdin_open: true
+    tty: true
